@@ -1,7 +1,3 @@
-/* AppCacheUI: https://github.com/timdream/appcacheui */
-(function(){var e={init:function(){var a=document,b=a.body,c=window.applicationCache;if(c)if(b){this.info=a.getElementById("appcache_info");if(!this.info){a.cE=a.createElement;var d=a.cE("a"),a=a.cE("div");a.id="appcache_info";d.href="";a.appendChild(d);b.firstChild&&b.insertBefore(a,b.firstChild);this.info=a}"checking,downloading,progress,noupdate,cached,updateready,obsolete,error".split(",").forEach(function(a){c.addEventListener(a,e)})}else console.log("Premature init. Put the <script> in <body>.")},
-handleEvent:function(a){this.info.className=this.info.className.replace(/ ?appcache\-.+\b/g,"")+" appcache-"+a.type;"progress"===a.type&&a.total&&this.info.setAttribute("data-progress",a.loaded+1+"/"+a.total)}};e.init()})();
-
 //create all the variables
 var score;
 var cardsmatched;
@@ -33,9 +29,8 @@ matchingGame.deck = [
 'sf', 'sf',
 'op', 'op',
 'ns', 'ns',
-'ms', 'ms',
 'tb', 'tb',
-'fm', 'fm'
+'fm', 'fm',
 ];
 
 matchingGame.clone = $.extend(true, [], matchingGame.deck);
@@ -88,6 +83,9 @@ function checkInstalled() {
 
   var request = window.navigator.mozApps.getSelf();
   request.onsuccess = function getSelfSuccess() {
+    if (request.result)
+      return;
+
     uiInstall.click(installApp);
     uiInstall.addClass('visible');
   };
@@ -140,33 +138,6 @@ function init() {
   }
 
   document.addEventListener('keydown', closebox, false);
-
-  //Handle the melody
-  if(mediaSupport('audio/ogg; codecs=vorbis', 'audio') ||
-    mediaSupport('audio/mpeg', 'audio')) {
-    var melody = $('#melody')[0];
-    melody.volume = 0.15;
-    melody.muted = false;
-    $('#mute').click(function() {
-      if(melody.muted) {
-      melody.muted = false;
-      $(this).addClass('melody');
-      } else {
-      melody.muted = true;
-      $(this).removeClass('melody');
-      }
-    });
-    $('#melody').on(
-      'ended',
-      function() {
-        melody.currentTime = 0;
-        melody.pause();
-        melody.play();
-      }
-    );
-    $('#mute').addClass('music').addClass('melody');
-    melody.play();
-  }
 }
 
 //start game and create cards from deck array
@@ -180,15 +151,15 @@ function startGame() {
   if (playGame == false) {
     playGame = true;
     $.shuffle(matchingGame.deck.sort(function(){return 0.5 - Math.random();}));
-    for(var i=0;i<17;i++){
+    for(var i=0;i<15;i++){
       $(".card:first-child").clone().appendTo("#cards");
     }
     // initialize each card's position
     uiCards.children().each(function(index) {
-      // align the cards to be 3x6 ourselves.
+      // align the cards to be 4x4 ourselves.
       $(this).css({
-        "left" : ($(this).width() + 20) * (index % 6),
-        "top" : ($(this).height() + 20) * Math.floor(index / 6)
+        "left" : ($(this).width() + 10) * (index % 4) + 10,
+        "top" : ($(this).height() + 10) * Math.floor(index / 4)
       });
       // get a pattern from the shuffled deck
       var pattern = matchingGame.deck.pop();
@@ -280,7 +251,7 @@ function isMatchPattern() {
 //check to see if all cardmatched variable is less than 8 if so remove card only otherwise remove card and end game
 function removeTookCards() {
   playSound('match');
-  if (cardsmatched < 8){
+  if (cardsmatched < 7){
     cardsmatched++;
     $(".card-removed").remove();
   } else {

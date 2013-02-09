@@ -21,16 +21,7 @@ body {
   font-family: "Days One", sans-serif;
 }
 
-:-moz-full-screen {
-  background: url(images/left.png) no-repeat bottom left fixed, url(images/right.png) no-repeat bottom right fixed, -moz-linear-gradient(0, rgba(200,0,0,.5) 50%, transparent 50%), -moz-linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%), #F26522;
-  background-size: auto auto, auto auto, 50px 50px, 50px 50px, auto auto;
-}
-
-:-webkit-full-screen {
-  background: url(images/left.png) no-repeat bottom left fixed, url(images/right.png) no-repeat bottom right fixed, -webkit-linear-gradient(0, rgba(200,0,0,.5) 50%, transparent 50%), -webkit-linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%),  #F26522;
-  background-size: auto auto, auto auto, 50px 50px, 50px 50px, auto auto;
-}
-
+/* The #game element holds the whole game */
 #game {
   position: absolute;
   top: 0;
@@ -38,109 +29,50 @@ body {
   bottom: 0;
   right: 0;
   background: #001711;
-  width: 760px;
-  height: 530px;
+  width: 255px;
+  height: 420px;
   margin: auto;
   display: block;
   box-shadow: 0px 3px 12px #000;
+  background: #001711;
   border-radius: 4px;
-  padding: 20px;
+  padding: 10px;
 }
+
+/* The #gameStats element is the header bar at the top of the game */
 #gameStats {
+  display: none;
+}
+
+#game.play #gameStats {
+  display: block;
   background: #eee;
   width: 100%;
   float: left;
   box-shadow: inset 0 0 8px #000;
   border-radius: 4px;
-  padding: 10px 0;
-  height: 20px;
-  font-size: 16px;
+  padding: 8px 0;
+  height: 14px;
+  font-size: 12px;
 }
 
-#install,
-#gameScore,
-#reset {
-  display: none;
+/* The #reset button and the #gameScore button are in the header bar */
+#reset,
+#gameScore {
+  display: block;
   float: left;
   text-align: left;
   padding: 0 0 0 15px;
 }
 
-#install.visible {
-  display: block;
-}
-
-#install,
 #reset {
   cursor: pointer;
 }
 
-.baritem {
-  display: none;
-  float: right;
-  text-align: right;
-  margin: 0 10px 0 30px;
-  cursor: pointer;
-  position: relative;
-}
-
-.baritem:before {
-  position: absolute;
-  content: "";
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background-color: #000;
-  box-shadow: inset 0 0 3px #DA4930;
-  top: 2px;
-  left: -25px;
-}
-
-.baritem:after {
-  position: absolute;
-  content: "";
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 3px #ddd;
-  top: 2px;
-  left: -25px;
-}
-
-#mute.melody:before {
-  background-color: rgba(218, 73, 48, 1);
-  box-shadow: 0 0 5px rgba(218, 73, 48, 0.7);
-}
-
-:fullscreen #fullscreen:before {
-  background-color: rgba(218, 73, 48, 1);
-  box-shadow: 0 0 5px rgba(218, 73, 48, 0.7);
-}
-
-:-moz-full-screen #fullscreen:before {
-  background-color: rgba(218, 73, 48, 1);
-  box-shadow: 0 0 5px rgba(218, 73, 48, 0.7);
-}
-
-:-webkit-full-screen #fullscreen:before {
-  background-color: rgba(218, 73, 48, 1);
-  box-shadow: 0 0 5px rgba(218, 73, 48, 0.7);
-}
-
-#game.play #gameScore, #game.play #reset, #mute.music, #fullscreen.support {
-  display: block;
-}
-
-#playground {
-  margin-top: 58px;
-  position: relative;
-  height: 500px;
-}
-
+/* The #cards element holds the cards */
 #cards {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -152,12 +84,12 @@ body {
   display: block;
 }
 
-/* Define the 3D perspective view and dimension of each card. */
+/* The .card class styles apply to every card */
 .card {
-  -webkit-perspective: 600px;
-  -moz-perspective: 600px;
-  width: 110px;
-  height: 145px;
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  width: 56px;
+  height: 88px;
   position: absolute;
   -moz-transition: all .3s ease;
   -webkit-transition: all .3s ease;
@@ -166,16 +98,29 @@ body {
   cursor: pointer;
 }
 
+/* These styles create the images on the cards. We're using a path to the images
+   included in a directory in our game, but you can also use an image that is
+   hosted anyhwere on the internet by using its url in the "url()" rule. */
+.ie {background: url(./images/ie.png) no-repeat; background-size: contain;}
+.fx {background: url(./images/fx.png) no-repeat; background-size: contain;}
+.cr {background: url(./images/cr.png) no-repeat; background-size: contain;}
+.sf {background: url(./images/sf.png) no-repeat; background-size: contain;}
+.op {background: url(./images/op.png) no-repeat; background-size: contain;}
+.ns {background: url(./images/ns.png) no-repeat; background-size: contain;}
+.tb {background: url(./images/tb.png) no-repeat; background-size: contain;}
+.fm {background: url(./images/fm.png) no-repeat; background-size: contain;}
+
+
+/* The .reset class is added to the cards when the game is reset */
 .reset {
   box-shadow: 0 0 30px #fff;
 }
 
+/* The #gameIntro element holds the screen that shows when you start the app */
 #gameIntro {
-  padding-top: 10px;
   text-align: center;
-  height: 480px;
-  width: 760px;
   position: absolute;
+  margin: 10px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -193,43 +138,55 @@ body {
 }
 
 #game.play #gameIntro, #game.end #gameIntro {
-  opacity: 0;
-  z-index: 0;
-  background: url(./images/start.png) center center no-repeat;
+  display: none;
 }
 
-#gamePlay {
+/* The .button class is appled to the #install, #gamePlay, and #gameAgain buttons */
+.button {
   background: white;
   border-radius: 5px;
-  display: block;
   font-size: 2em;
-  margin: 350px auto 0;
   padding: 10px;
   width: 150px;
   border: 8px solid #DA4930;
   z-index: 99;
 }
 
-#gamePlay:hover, .button:hover {
+/* :hover styles are applied when the user's mouse hovers over the element */
+.button:hover {
   background: #F26522 !important;
   color: #fff;
   cursor: pointer;
+}
+
+#install {
+  margin: 10px auto 0;
+  display: none;
+}
+
+#install.visible {
+  display: block;
+}
+
+#gamePlay {
+  margin: 220px auto 0;
+  display: block;
 }
 
 #loading.loaded {
   display: none;
 }
 
+/* The #gameComplete element holds the screen that shows when you finish the game */
 #gameComplete {
   background: url(./images/end.png) center 0 no-repeat;
   text-align: center;
   position: absolute;
+  margin: 10px;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  width: 760px;
-  height: 400px;
   visibility: hidden;
   z-index: 1;
 }
@@ -256,35 +213,13 @@ body {
 
 #result {
   background: white;
-  margin: 290px auto 0;
+  margin: 150px auto 0;
   width: 60%;
   border-radius: 5px;
   font-size: 20px;
   border: 8px solid #DA4930;
   padding: 20px 0;
   position: relative;
-}
-
-#result:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 140px;
-  top: -50px;
-  border: 25px solid;
-  border-color: transparent #DA4930 #DA4930 transparent;
-}
-
-#result:after {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 142px;
-  top: -30px;
-  border: 20px solid;
-  border-color: transparent #fff #fff transparent;
 }
 
 .face {
@@ -330,122 +265,4 @@ body {
 }
 .card-removed {
   opacity: 0;
-}
-
-/* Card images */
-
-.ie {background: url(./images/ie.png) no-repeat -5px -15px;}
-.fx {background: url(./images/fx.png) no-repeat -5px -15px;}
-.cr {background: url(./images/cr.png) no-repeat -5px -15px;}
-.sf {background: url(./images/sf.png) no-repeat -5px -15px;}
-.op {background: url(./images/op.png) no-repeat -5px -15px;}
-.ns {background: url(./images/ns.png) no-repeat -5px -15px;}
-.ms {background: url(./images/ms.png) no-repeat -5px -15px;}
-.tb {background: url(./images/tb.png) no-repeat -5px -15px;}
-.fm {background: url(./images/fm.png) no-repeat -5px -15px;}
-
-/* AppCache UI */
-
-#appcache_info {
-  position: absolute;
-  position: fixed;
-  top: -2em;
-  left: 1em;
-  right: 1em;
-  font: 1em sans-serif;
-  line-height: 1.8em;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow: hidden;
-
-  background-color: rgba(245, 245, 245, 0.9);
-  color: #000;
-  border: 1px solid #ccc;
-  -webkit-box-shadow: 0 0 5px #e0e0e0;
-  box-shadow: 0 0 5px #e0e0e0;
-  border-top: none;
-
-  padding: 0 0.5em;
-  border-bottom-left-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
-
-  -webkit-transition: top 0.5s ease;
-  -moz-transition: top 0.5s ease;
-  -ms-transition: top 0.5s ease;
-  -o-transition: top 0.5s ease;
-  transition: top 0.5s ease;
-  z-index: 99999;
-}
-
-#appcache_info a {
-  display: none;
-  float: right;
-  font-weight: bold;
-  text-decoration: none;
-  color: #00f;
-}
-
-#appcache_info.appcache-progress:after {
-  display: block;
-  float: right;
-  font-weight: bold;
-  content: attr(data-progress);
-}
-
-#appcache_info.appcache-updateready a,
-#appcache_info.appcache-obsolete a {
-  display: block;
-}
-
-body.appcache-allinfo #appcache_info.appcache-checking,
-#appcache_info.appcache-downloading,
-#appcache_info.appcache-progress,
-#appcache_info.appcache-updateready,
-#appcache_info.appcache-obsolete {
-  top: 0;
-}
-
-#appcache_info.appcache-updateready,
-#appcache_info.appcache-obsolete {
-  background-color: rgba(255, 245, 128, 0.9);
-  font-weight: bold;
-}
-
-body.appcache-allinfo #appcache_info.appcache-noupdate,
-body.appcache-allinfo #appcache_info.appcache-error,
-#appcache_info.appcache-cached {
-  top: -2em;
-
-  -webkit-transition: top 0.5s ease 3s;
-  -moz-transition: top 0.5s ease 3s;
-  -ms-transition: top 0.5s ease 3s;
-  -o-transition: top 0.5s ease 3s;
-  transition: top 0.5s ease 3s;
-}
-
-/* English (default) strings */
-#appcache_info a:before {
-  content: 'Reload Now';
-}
-#appcache_info.appcache-checking:before {
-  content: 'Checking for offline content updates ...'
-}
-#appcache_info.appcache-downloading:before,
-#appcache_info.appcache-progress:before {
-  content: 'Downloading offline content ...'
-}
-#appcache_info.appcache-updateready:before {
-  content: 'A new version is available.';
-}
-#appcache_info.appcache-noupdate:before {
-  content: 'No updates available for now.';
-}
-#appcache_info.appcache-obsolete:before {
-  content: 'This website is obsolete. Reload to see new version.';
-}
-#appcache_info.appcache-error:before {
-  content: 'Unable to check for offline content updates.';
-}
-#appcache_info.appcache-cached:before {
-  content: 'Download complete. Ready to be accessed offline.';
 }
