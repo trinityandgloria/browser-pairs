@@ -96,7 +96,7 @@ function checkInstalled() {
 
 function installApp() {
   var location = window.location.href;
-  var manifest = location.substring(0, location.lastIndexOf('/')) + '/manifest.webapp';
+  var manifest = 'http://leibovic.github.com/browser-pairs/manifest.webapp';
 
   var request = navigator.mozApps.install(manifest);
   request.onsuccess = function installSuccess() {
