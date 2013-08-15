@@ -68,7 +68,7 @@ body {
   For the best results, try finding images that are about the same size as the images
   that are currently being used (they're all 120x189 pixels).
   */
-  background-image: url(./images/card.png); /* this is the image that appears on the front of all the cards */
+  background-image: url(http://3mcollision.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/t/striping_color-20-Silver-Starfire_19.jpg); /* this is the image that appears on the front of all the cards */
   background-position: 0 0;
   border-radius: 4px;
   z-index: 10;
@@ -117,7 +117,7 @@ body {
 }
 
 .fm {
-  background-image: url(./images/fm.png);
+  background-image: url(http://3mcollision.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/t/striping_color-20-Silver-Starfire_19.jpg);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -138,7 +138,7 @@ body {
 }
 
 #game.open #gameIntro {
-  background-image: url(http://3mcollision.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/t/striping_color-20-Silver-Starfire_19.jpg); /* this is the image that appears when you start the game */
+  background-image: url(./images/card.png); /* this is the image that appears when you start the game */
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 1;
