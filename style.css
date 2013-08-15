@@ -70,7 +70,7 @@ body {
   that are currently being used (they're all 120x189 pixels).
   */
   background-image: url(http://indulgy.net/K8/L5/W4/251779435387560937WjLXC5Bac.jpg); /* this is the image that appears on the front of all the cards */
-  width: 120px;
+  background-size: 120px 189px;
   background-position: 0 0;
   border-radius: 4px;
   z-index: 10;
