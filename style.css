@@ -140,7 +140,7 @@ body {
 }
 
 #game.open #gameIntro {
-  background-image: url(./images/start.png); /* this is the image that appears when you start the game */
+  background-image: url(http://29.media.tumblr.com/tumblr_lz43h6jmgR1ro5a7mo1_100.png); /* this is the image that appears when you start the game */
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 1;
