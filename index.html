@@ -1,27 +1,85 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html><head>
 
-<!-- The <head> tag is where the page's title, meta information, styles (and more) usually go -->
-<head>
-  <meta charset="utf-8">
-  <title>BrowserPairs - Dare 2B Digital Test App</title>
-  <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon" href="images/logo.jpg" />
-  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <!--
+    Keep scrolling down, nothing to see here, this stuff is just for the  computers for now
+  -->
+    <meta content="mobilegameworkshop" name="webmaker:tags">
+    <meta charset="utf-8">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="images/logo.jpg" />
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link rel="stylesheet" href="style.css" />  
 
-  <!-- This <link> tag loads fonts for the page -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:600|Days+One">
+  <!--  Here's the START!!!
 
-  <!-- This <link> tag loads all the other CSS styles for the page -->
-  <link rel="stylesheet" href="style.css" />
+      Lessons to be covered:
+        - Changing images
+        - Changing text
+        - Changing colors
+        - Changing sound
+        - Changing font
+        - Installing or saving a game to a mobile device
+    -->
+
+    <!-- 
+    In this project you can create your own pair matching game by altering
+    some code that already contains the basic functionality.  You'll see how to customize the cards, background, and also learn how to play it on several devices like a laptop, tablet, or mobile phone.  On a Firefox OS phone you can even install it and play it offline.
+    -->
+
+  <!--
+    Let's get started.
+
+    1) READ THROUGH THE COMMENTS. This is a comment. Everything inside of this tag for HTML or '/*' for CSS, is not processed as code, but instead is just text comments about the code. For this project, the comments will give you instructions, hints and guides to completing the project, so skim down through the comments to get an understanding of what you are being asked to do.
+    2) GET ORIENTED IN THE CODE. HTML is made up of tags that look like this <p> </p>. The tags tell you something about the information contained between them. Click on the tags in the code on this side of the editor to get a description of what each tag is for.
+  -->
+
+
+  <!--
+      Task 1: 
+      Why don't we start by changing the name of your site/app? Any text that goes between the <title></title> tags will show up in the top of the browser window when you go to it on a laptop/tablet and sometimes in the address bar of mobile browsers.  It helps people know what page they're on.  Tell the world what your game is going to be about!
+
+      eg:  Kitten Match Game
+  -->
+
+  <title>Browser Pairs - My First Mobile Game</title>
+
+  <!-- 
+      Task 2:
+      The below HTML is a link to an 'external' font. These fonts use open
+      licensing and are available for free on the web for sites (and games)
+      to use.
+
+      Go to https://www.google.com/fonts/ and pick a font you would like
+      to see in your game, then select the 'quick use' button in the box
+      of that font.  It should provide you with a default line of code
+      like the one below but for your font.  Copy and paste it in here,
+      REPLACING the line below.
+
+      Then, in order to make it work, go into your style.css file and
+      find the tag 'font-family' - replace 'Days One' with the name of
+      your new font. eg: 'Caesar Dressing' 
+
+      Go check your game (refresh the page). See a difference?
+  -->
+  <link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
+
 </head>
 
-<!-- The <body> tag is where the parts of the page you see go -->
+<!-- 
+  The <body> tag is where the parts of the page you see go
+-->
+
 <body>
 
-<article id="game">
+<!-- 
+    Every thing about the game goes into this 'div' which you can think 
+    of like a box that holds all your web page code for the game.  We give it the id 'game' so that we can address it in the css file for things
+    like location, style, and other ways to manipulate it visually.
+-->
+
+<div id="game">
 
   <!-- This <header> makes the bar on the top of the game area -->
   <header id="gameStats">
@@ -54,11 +112,25 @@
     <p><a id="gameAgain" class="button" href="#">Play again</a></p>
   </div>
 
-</article> <!-- #game -->
+</div> 
+<!-- 
+    End of the #game box 
+-->
 
-<!-- These <audio> tags hold the sounds for the game. They use sounds
-     stored in the "sound" directory for the app, but you can use any
-     sound on the internet by using its url for the "src" attribute. -->
+<!-- 
+
+    These <audio> tags hold the sounds for the game. They use sounds
+    stored in the "sound" directory for the app, but you can use any
+    sound on the internet by using its url for the "src" attribute. 
+
+    Task 3:
+
+    * Search for an .mp3 or .ogg audio file that is already hosted online
+    * Replace the url between the src="" quotation marks with the link to
+      your sound file
+    * Try your game again and see if you hear your new sound(s)!
+
+-->
 <audio class="sound">
    <source src="sound/intro.ogg" type="audio/ogg; codecs=vorbis" />
    <source src="sound/intro.mp3" type="audio/mpeg" />
@@ -75,6 +147,19 @@
    <source src="sound/applause.ogg" type="audio/ogg; codecs=vorbis" />
    <source src="sound/applause.mp3" type="audio/mpeg" />
 </audio>
+
+
+<!--
+
+  Task 4:
+
+  Now that you've customized your game, try it out on various devices
+  like tablets, phone, laptops, and if possible a Firefox OS mobile device.
+
+  On a Firefox OS device you can install this to the phone and have an 
+  app icon on the homescreen for it.
+
+-->
 
 <!-- These <script> tags load JavaScript code to control the game -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

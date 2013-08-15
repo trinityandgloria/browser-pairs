@@ -1,8 +1,8 @@
 BrowserPairs
 ============
-This is a simplified version of a HTML5 pairs game originally created
-by the Mozilla Taiwan Community. This version has been modified to fit on
-screens with smaller resolutions, and comments have been added to make
+This is a teachable, simplified version of a HTML5 pairs game 
+by the Mozilla Taiwan Community. This version has been modified to teach 
+to first time webmakers and comments have been added to make
 the code more self-explanatory.
 
 
